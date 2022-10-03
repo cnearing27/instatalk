@@ -9,3 +9,11 @@
 <div class="mt-2">
   <%= render 'rooms/form', room: @room %>
 </div>
+
+<div class="mt-4">
+  <h3>Users online:</h1>
+  <ul id="online_users">
+    <%= render 'users/online', users: User.online %>
+  </ul>
+</div>
+
