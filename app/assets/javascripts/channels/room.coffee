@@ -29,3 +29,5 @@ createRoomChannel = (roomId) ->
     speak: (message) ->
       if message.trim() != ''
         @perform 'speak', message: message
+        element = document.getElementById('messages')
+        element.scrollTo(0, element.scrollHeight)
