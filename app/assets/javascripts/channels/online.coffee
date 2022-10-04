@@ -9,5 +9,5 @@ jQuery(document).on 'turbolinks:load', ->
     received: (data) ->
       if data['user'].online && !document.querySelector("[data-user-id='#{data['user'].id}']")
         $('#online_users').append "<li data-user-id='#{data['user'].id}'>#{data['user'].nickname}</li>"
-      else if !data['user'].online
+      else if !data['user'].online && data['user'].windows_counter == 0
         document.querySelector("[data-user-id='#{data['user'].id}']").remove()
