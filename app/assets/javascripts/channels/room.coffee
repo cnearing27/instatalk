@@ -16,6 +16,7 @@ createRoomChannel = (roomId) ->
     connected: ->
       # Called when the subscription is ready for use on the server
       console.log('Connected to RoomChannel')
+      scrollMessages()
 
     disconnected: ->
       # Called when the subscription has been terminated by the server
@@ -25,9 +26,11 @@ createRoomChannel = (roomId) ->
       # Called when there's incoming data on the websocket for this channel
       console.log('Received message: ' + data['message'])
       $('#messages').append data['message']
+      scrollMessages()
 
     speak: (message) ->
       if message.trim() != ''
         @perform 'speak', message: message
-        element = document.getElementById('messages')
-        element.scrollTo(0, element.scrollHeight)
+
+    scrollMessages = () ->
+      messages.scrollTop = messages.scrollHeight
