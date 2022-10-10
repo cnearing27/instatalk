@@ -1,7 +1,7 @@
 jQuery(document).on 'turbolinks:load', ->
   messages = $('#messages')
 
-  if messages.length > 0
+  if messages.length > 0 && !App.room
     createRoomChannel messages.data('room-id')
 
   $(document).on 'keypress', '#message_body', (event) ->
